@@ -6,8 +6,8 @@ import MovieCard from "./MovieCard";
 export default function App() {
   const [movies, setMovies] = useState([]);
   console.log(movies);
-  const [searchMovie, setSearchMovie] = useState("batman");
-  console.log(searchMovie);
+  const [searchMovie, setSearchMovie] = useState("superman");
+
   useEffect(() => {
     const getMovies = async () => setMovies(await fetchMovies(searchMovie));
     getMovies();
@@ -23,7 +23,7 @@ export default function App() {
           <TextInput
             placeholder="Search your movies here"
             value={searchMovie}
-            onChange={(e) => setSearchMovie(e.target.value)}
+            onChangeText={(e) => setSearchMovie(e)}
             style={{
               marginTop: 35,
             }}
