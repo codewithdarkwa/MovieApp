@@ -1,21 +1,19 @@
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 import { useState, useEffect } from "react";
 import { fetchMovies } from "./Api/index";
 import { TextInput } from "react-native-paper";
 import MovieCard from "./MovieCard";
 export default function App() {
   const [movies, setMovies] = useState([]);
-  console.log(movies);
   const [searchMovie, setSearchMovie] = useState("superman");
 
-  useEffect(() => {
-    const getMovies = async () => setMovies(await fetchMovies(searchMovie));
-    getMovies();
-  }, []);
-  const Search = async () => {
+  const getMovies = async () => {
     setMovies(await fetchMovies(searchMovie));
     setSearchMovie("");
   };
+  useEffect(() => {
+    getMovies();
+  }, []);
   return (
     <>
       {Object.keys(movies).length > 0 && (
@@ -23,12 +21,12 @@ export default function App() {
           <TextInput
             placeholder="Search your movies here"
             value={searchMovie}
-            onChangeText={(e) => setSearchMovie(e)}
+            onChangeText={(text) => setSearchMovie(text)}
             style={{
-              marginTop: 35,
+              marginTop: 20,
             }}
-            left={<TextInput.Icon name="magnify" onPress={Search} />}
-            onSubmitEditing={Search}
+            left={<TextInput.Icon name="magnify" />}
+            onSubmitEditing={getMovies}
           />
           <ScrollView
             contentContainerStyle={{

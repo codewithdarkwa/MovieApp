@@ -6,6 +6,6 @@ export const fetchMovies = async (title) => {
     const data = await res.json();
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response);
   }
 };

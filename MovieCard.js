@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import React from "react";
 
 export default function MovieCard({ movie }) {
@@ -6,7 +6,7 @@ export default function MovieCard({ movie }) {
     <View style={{ justifyContent: "center", alignItems: "center" }}>
       <Image
         style={{
-          width: 170,
+          width: 150,
           height: 200,
           margin: 10,
           borderRadius: 5,
