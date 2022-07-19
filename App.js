@@ -4,9 +4,10 @@ import { fetchMovies } from "./Api/index";
 import { TextInput } from "react-native-paper";
 import MovieCard from "./MovieCard";
 import { StatusBar } from "react-native";
+import {Appbar} from "react-native-paper";
+
 export default function App() {
-  const [movies, setMovies] = useState([]);
-  console.log(movies);
+  const [movies, setMovies] = useState([])
   const [searchMovie, setSearchMovie] = useState("prison break");
 
   const getMovies = async () => {
@@ -21,6 +22,9 @@ export default function App() {
       {Object.keys(movies).length > 0 && (
         <View>
           <StatusBar barStyle="dark-content" />
+          <Appbar>
+           <Appbar.Content title="Movie app"></Appbar.Content>
+          </Appbar>
           <TextInput
             placeholder="Search your movies here"
             value={searchMovie}
