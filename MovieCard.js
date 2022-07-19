@@ -14,7 +14,7 @@ export default function MovieCard({ movie }) {
           resizeMode ="cover"
           source={{ uri: movie.Poster }}
         />
-        
+        <Text style={{fontSize:20,fontWeight: 'bold',paddingLeft:10}}>{movie.Title}</Text>
       </TouchableOpacity>
     </View>
   );
